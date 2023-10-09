@@ -30,7 +30,7 @@
 
      
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center portal">
           <a href="<?= BASEURL ?>/login" class="btn btn-link px-3 me-3" >Login</a>
           <a href="<?= BASEURL ?>/register" class="btn btn-primary me-3">Register</a>
         </div>

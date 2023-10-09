@@ -74,4 +74,5 @@ $(function () {
                 RepeatPassword.addClass('is-invalid');
         }
     });
+
 })

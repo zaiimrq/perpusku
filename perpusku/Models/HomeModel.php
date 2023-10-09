@@ -13,9 +13,13 @@ class HomeModel extends Database
     {
         $this->db = new Database;
     }
-    public function home()
+    public function home($search)
     {
-        $this->db->query("SELECT * FROM buku");
+        $query = 'SELECT * FROM buku WHERE judul LIKE :search OR pengarang LIKE :search OR penerbit LIKE :search OR tahun_terbit LIKE :search';
+        $search = '%' . $search . '%';
+
+        $this->db->query($query);
+        $this->db->bind('search', $search);
         return $this->db->getAll();
     }
 

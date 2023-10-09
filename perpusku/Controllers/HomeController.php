@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(): void
     {
-        $data['books'] = self::model(HomeModel::class)->home();
+        $data['books'] = self::model(HomeModel::class)->home($_GET['q'] ?? false);
         $data['title'] = 'Home';
         self::view('Home/index', $data);
     }
