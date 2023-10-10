@@ -19,7 +19,7 @@ class RegisterController extends Controller
         }
 
         $data['title'] = 'Register';
-        self::view('Home/register', $data);
+        $this->view('Home/register', $data);
     }
     
     public function store()

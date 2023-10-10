@@ -13,6 +13,11 @@ class HomeModel extends Database
     {
         $this->db = new Database;
     }
+
+    public function __destruct()
+    {
+        $this->db = null;
+    }
     public function home($search)
     {
         $query = 'SELECT * FROM buku WHERE judul LIKE :search OR pengarang LIKE :search OR penerbit LIKE :search OR tahun_terbit LIKE :search';

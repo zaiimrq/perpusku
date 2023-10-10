@@ -19,7 +19,14 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">
+                <p class="h2">See Youu 🤗, </p>             
+                   <?php if (isset($_SESSION['auth']['admin'])): ?>
+                        <p class="h3">Admin</p>
+                    <?php elseif (isset($_SESSION['auth']['anggota'])): ?>
+                       <p class="h3" > <?= $_SESSION['verify']['nama'] ?? false ?></p>
+                    <?php endif ?>                
+            </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <a class="btn btn-primary" href="<?= BASEURL ?>/logout">Logout</a>

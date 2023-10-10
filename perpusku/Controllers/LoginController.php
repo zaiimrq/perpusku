@@ -2,6 +2,7 @@
 
 namespace Perpus\Perpusku\Controllers;
 use Perpus\Perpusku\Core\Controller;
+use Perpus\Perpusku\Core\Flasher;
 use Perpus\Perpusku\Models\HomeModel;
 
 class LoginController extends Controller
@@ -23,6 +24,12 @@ class LoginController extends Controller
     public function login()
     {
         $data = self::model(HomeModel::class)->login($_POST);
+
+        if (!$data) {
+            Flasher::setFlash('Gagal', 'Email Atau Password Salah !', 'danger', 'login');
+            header('Location: '. BASEURL . '/login');
+            exit;
+        }
 
         if ($data['auth'] && !($data['data']['is_admin'])) {
             $_SESSION['auth']['anggota'] = true;
