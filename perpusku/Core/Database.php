@@ -29,6 +29,11 @@ class Database
         }
     }
 
+    public function __destruct()
+    {
+        $this->dbh = null;
+    }
+
 
     public function query($query)
     {

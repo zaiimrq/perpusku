@@ -31,8 +31,12 @@
      
 
         <div class="d-flex align-items-center portal">
-          <a href="<?= BASEURL ?>/login" class="btn btn-link px-3 me-3" >Login</a>
-          <a href="<?= BASEURL ?>/register" class="btn btn-primary me-3">Register</a>
+          <?php if (isset($_SESSION['auth'])): ?>
+            <a href="<?= BASEURL ?>/dashboard" class="btn btn-primary me-3">Dashboard</a>
+          <?php else: ?>
+            <a href="<?= BASEURL ?>/login" class="btn btn-link px-3 me-3" >Login</a>
+            <a href="<?= BASEURL ?>/register" class="btn btn-primary me-3">Register</a>
+          <?php endif; ?>
         </div>
       </div>
     </nav>

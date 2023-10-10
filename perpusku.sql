@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 08, 2023 at 12:47 PM
+-- Generation Time: Oct 10, 2023 at 09:15 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -40,7 +40,7 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id`, `nama`, `email`, `alamat`, `nomor_telepon`) VALUES
-(27, 'Slamet Shariful Zaidin', 'zaiimrq@gmail.com', NULL, NULL);
+(28, 'Slamet Shariful Zaidin', 'zaiimrq@gmail.com', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,36 +62,35 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `judul`, `pengarang`, `penerbit`, `tahun_terbit`, `jumlah_copy`) VALUES
-(1, 'Bumi Manusia', 'Pramoedya Ananta Toer', 'Hasta Mitra', 1980, 5),
-(2, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 8),
-(3, 'Negeri 5 Menara', 'Ahmad Fuadi', 'Gramedia Pustaka Utama', 2009, 10),
-(4, 'Ayat-ayat Cinta', 'Habiburrahman El Shirazy', 'Republika', 2004, 7),
-(5, 'Sang Pemimpi', 'Andrea Hirata', 'Bentang Pustaka', 2006, 6),
-(6, 'Perahu Kertas', 'Dee Lestari', 'Bentang Pustaka', 2004, 9),
-(7, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 7),
-(8, '5cm', 'Donny Dhirgantoro', 'Grasindo', 2008, 4),
-(9, 'Madre', 'Dee Lestari', 'Bentang Pustaka', 2011, 3),
-(10, 'Garis Waktu', 'Fiersa Besari', 'MediaKita', 2014, 6),
-(11, 'Bumi Manusia', 'Pramoedya Ananta Toer', 'Hasta Mitra', 1980, 5),
-(12, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 8),
-(13, 'Negeri 5 Menara', 'Ahmad Fuadi', 'Gramedia Pustaka Utama', 2009, 10),
-(14, 'Ayat-ayat Cinta', 'Habiburrahman El Shirazy', 'Republika', 2004, 7),
-(15, 'Sang Pemimpi', 'Andrea Hirata', 'Bentang Pustaka', 2006, 6),
-(16, 'Perahu Kertas', 'Dee Lestari', 'Bentang Pustaka', 2004, 9),
-(17, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 7),
-(18, '5cm', 'Donny Dhirgantoro', 'Grasindo', 2008, 4),
-(19, 'Madre', 'Dee Lestari', 'Bentang Pustaka', 2011, 3),
-(20, 'Garis Waktu', 'Fiersa Besari', 'MediaKita', 2014, 6),
-(21, 'Bumi Manusia', 'Pramoedya Ananta Toer', 'Hasta Mitra', 1980, 5),
-(22, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 8),
-(23, 'Negeri 5 Menara', 'Ahmad Fuadi', 'Gramedia Pustaka Utama', 2009, 10),
-(24, 'Ayat-ayat Cinta', 'Habiburrahman El Shirazy', 'Republika', 2004, 7),
-(25, 'Sang Pemimpi', 'Andrea Hirata', 'Bentang Pustaka', 2006, 6),
-(26, 'Perahu Kertas', 'Dee Lestari', 'Bentang Pustaka', 2004, 9),
-(27, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 7),
-(28, '5cm', 'Donny Dhirgantoro', 'Grasindo', 2008, 4),
-(29, 'Madre', 'Dee Lestari', 'Bentang Pustaka', 2011, 3),
-(30, 'Garis Waktu', 'Fiersa Besari', 'MediaKita', 2014, 6);
+(1, 'Bumi Manusia', 'Pramoedya Ananta Toer', 'Hasta Mitra', 1980, 15),
+(2, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 20),
+(3, 'Gadis Pantai', 'Pramoedya Ananta Toer', 'Lentera Dipantara', 1962, 10),
+(4, 'Tenggelamnya Kapal van der Wijck', 'Hamka', 'Bentang Pustaka', 1939, 18),
+(5, 'Cinta di Dalam Gelas', 'Andrea Hirata', 'Gagas Media', 2009, 12),
+(6, 'Cerita Cinta Enrico', 'F. Hendri H.', 'Bentang Pustaka', 2009, 8),
+(7, 'Ayat-ayat Cinta', 'Habiburrahman El Shirazy', 'Republika', 2004, 25),
+(8, 'Pulang', 'Leila S. Chudori', 'Gagas Media', 2012, 22),
+(9, 'Pergi', 'Tere Liye', 'Gagas Media', 2003, 17),
+(10, 'Perahu Kertas', 'Dee Lestari', 'Bentang Pustaka', 2002, 30),
+(11, 'Kisah Lainnya', 'Andrea Hirata', 'Gagas Media', 2006, 15),
+(12, 'Edensor', 'Andrea Hirata', 'Bentang Pustaka', 2007, 14),
+(13, 'Sang Pemimpi', 'Andrea Hirata', 'Bentang Pustaka', 2006, 19),
+(14, 'Hujan', 'Tere Liye', 'Bentang Pustaka', 2011, 21),
+(15, 'Negeri 5 Menara', 'Ahmad Fuadi', 'Gramedia Pustaka Utama', 2009, 20),
+(16, 'Bidadari-bidadari Surga', 'Tere Liye', 'Gramedia Pustaka Utama', 2008, 16),
+(17, 'Supernova: Ksatria, Puteri, dan Bintang Jatuh', 'Dee Lestari', 'Bentang Pustaka', 2001, 24),
+(18, 'Rindu', 'Tere Liye', 'Gagas Media', 2004, 13),
+(19, 'Lelaki Harimau', 'Eka Kurniawan', 'Kepustakaan Populer Gramedia', 2004, 18),
+(20, 'Negeri Para Bedebah', 'Tere Liye', 'Gagas Media', 2002, 11),
+(21, 'Ketika Cinta Bertasbih', 'Habiburrahman El Shirazy', 'Republika', 2004, 25),
+(22, 'The Rainbow Troops', 'Andrea Hirata', 'Bentang Pustaka', 2005, 20),
+(23, 'Saman', 'Ayu Utami', 'Gagas Media', 1998, 17),
+(24, 'Pramoedya: An Invincible Spirit', 'Pramoedya Ananta Toer', 'Gramedia Pustaka Utama', 2006, 10),
+(25, 'Pulang', 'Leila S. Chudori', 'Penerbit Republika', 2012, 18),
+(26, 'Jejak Langkah', 'Pramoedya Ananta Toer', 'Gramedia Pustaka Utama', 1985, 15),
+(27, 'Padang Bulan', 'Andrea Hirata', 'Gramedia Pustaka Utama', 2005, 22),
+(28, 'Negeri van Oranje', 'Hamka', 'Gagas Media', 1945, 20),
+(30, 'Kambing dan Hujan', 'Setyawan Surya', 'Bentang Pustaka', 2010, 15);
 
 -- --------------------------------------------------------
 
@@ -126,7 +125,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `is_admin`) VALUES
-(13, 'zaiimrq@gmail.com', 'zaii', NULL);
+(14, 'zaiimrq@gmail.com', '$2y$10$tOUxSpSxsK6DaCB25zqdrOTq.nS4V0Oqt9wBZ43oaVM2Z0.EJefb6', 1);
 
 --
 -- Indexes for dumped tables
@@ -168,7 +167,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `buku`
@@ -180,7 +179,7 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
@@ -190,8 +189,7 @@ ALTER TABLE `users`
 -- Constraints for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  ADD CONSTRAINT `FK_peminjaman_anggota` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_peminjaman_buku` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_peminjaman_anggota` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`

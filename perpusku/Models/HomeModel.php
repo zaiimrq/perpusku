@@ -26,6 +26,8 @@ class HomeModel extends Database
     public function register($data)
     {
 
+        $password = password_hash($data['password'], PASSWORD_DEFAULT);
+
         $this->db->query('SELECT email FROM anggota WHERE email=:email');
         $this->db->bind('email', $data['email']);
 
@@ -40,7 +42,7 @@ class HomeModel extends Database
             
             $this->db->query('INSERT INTO users SET  email=:email, password=:password');
             $this->db->bind('email', $data['email']);
-            $this->db->bind('password', $data['password']);
+            $this->db->bind('password', $password);
             $this->db->execute();
     
             $this->db->end();
@@ -50,5 +52,27 @@ class HomeModel extends Database
             return false;
         }
 
+    }
+
+
+    public function login($data)
+    {
+        $query = 'SELECT users.email, users.password, users.is_admin, anggota.nama FROM users LEFT JOIN anggota ON users.email = anggota.email WHERE users.email = :email';
+
+        $this->db->query($query);
+        $this->db->bind('email', $data['email']);
+
+        if ($this->db->getRow() > 0) {
+            $rows = $this->db->get();
+
+            if (password_verify($data['password'], $rows['password'])) {
+                return [
+                    'auth' => true,
+                    'data' => $rows
+                ];
+            }
+        } else {
+            return false;
+        }
     }
 }

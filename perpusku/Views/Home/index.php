@@ -35,7 +35,8 @@
                 <p class="card-text text-start">
                   <small class="text-muted small">Oleh : <?= $book['pengarang'] ?></small> <br/>
                   <small class="text-muted small">Penerbit : <?= $book['penerbit'] ?></small> <br/>
-                  <small class="text-muted small">Tahun : <?= $book['tahun_terbit'] ?></small>
+                  <small class="text-muted small">Tahun : <?= $book['tahun_terbit'] ?></small> <br/>
+                  <small class="text-muted small">Tersedia : <?= $book['jumlah_copy'] ?></small>
                 </p>
                 <a href="#!" class="btn btn-primary">Borrow</a>
               </div>
