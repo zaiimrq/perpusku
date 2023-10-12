@@ -1,7 +1,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+                    <span>Copyright &copy; perpusku <?= date('Y') ?></span>
                 </div>
             </div>
         </footer>
@@ -24,7 +24,7 @@
                    <?php if (isset($_SESSION['auth']['admin'])): ?>
                         <p class="h3">Admin</p>
                     <?php elseif (isset($_SESSION['auth']['anggota'])): ?>
-                       <p class="h3" > <?= $_SESSION['verify']['nama'] ?? false ?></p>
+                       <p class="h3" > <?= $_SESSION['auth']['user']['nama'] ?? false ?></p>
                     <?php endif ?>                
             </div>
             <div class="modal-footer">

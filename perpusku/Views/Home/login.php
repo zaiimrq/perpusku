@@ -10,7 +10,7 @@
 
 <body class="bg-gradient-primary ">
 
-    <div class="container min-vh-100 align-items-center py-5">
+    <div class="container min-vh-90 align-items-center py-5">
 
         <div class="row justify-content-center mt-3">
             <div class="col-xl-10 col-lg-12 col-md-9">
@@ -63,8 +63,6 @@
         </div>
 
     </div>
-
-
 
 </body>
 

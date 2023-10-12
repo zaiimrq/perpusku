@@ -33,7 +33,7 @@ class LoginController extends Controller
 
         if ($data['auth'] && !($data['data']['is_admin'])) {
             $_SESSION['auth']['anggota'] = true;
-            $_SESSION['verify'] = $data['data'];
+            $_SESSION['auth']['user'] = $data['data'];
             header("Location: ". BASEURL . "/dashboard/anggota");
             exit;            
         }

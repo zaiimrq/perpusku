@@ -2,7 +2,10 @@
 
 namespace Perpus\Perpusku\Core;
 
-class Route
+use Perpus\Perpusku\Core\Controller;
+
+
+class Route extends Controller
 {
    
     private static $routes = [];
@@ -31,10 +34,11 @@ class Route
  
                  $controller = new $route['controller'];
                  $controller->$function();
+                 return;
              }
          }
  
-         http_response_code(404);
+         self::view('Error/404');
          return;
     } 
 }

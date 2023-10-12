@@ -20,11 +20,14 @@ class HomeModel extends Database
     }
     public function home($search)
     {
-        $query = 'SELECT * FROM buku WHERE judul LIKE :search OR pengarang LIKE :search OR penerbit LIKE :search OR tahun_terbit LIKE :search';
-        $search = '%' . $search . '%';
-
+        $query = 'SELECT * FROM buku WHERE ( judul LIKE :search OR pengarang LIKE :search OR penerbit LIKE :search OR tahun_terbit LIKE :search )';
+        if ($search['c']) {
+            $query .= ' AND category = "'. $search['c'] .'" ORDER BY id DESC';
+        }
+        $search = '%' . $search['q'] . '%';
         $this->db->query($query);
         $this->db->bind('search', $search);
+    
         return $this->db->getAll();
     }
 

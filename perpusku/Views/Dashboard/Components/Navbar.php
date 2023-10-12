@@ -3,7 +3,6 @@
         <i class="fa fa-bars"></i>
     </button>
     <ul class="navbar-nav ml-auto">
-        <div class="topbar-divider d-none d-sm-block"></div>
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,7 +11,7 @@
                         if (isset($_SESSION['auth']['admin'])) {
                             echo "Admin, Welcome !";
                         } elseif (isset($_SESSION['auth']['anggota'])) {
-                           echo $_SESSION['verify']['nama'] ?? false;
+                           echo $_SESSION['auth']['user']['nama'] ?? false;
                         }
                     ?>
                 </span>

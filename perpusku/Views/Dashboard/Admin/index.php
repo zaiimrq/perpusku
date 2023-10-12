@@ -1,7 +1,11 @@
 
-<?php require_once __DIR__ . "/../Layouts/Head.php" ?>
+<?php
 
-    <div class="container-fluid">
+use Perpus\Perpusku\Core\Flasher;
+
+ require_once __DIR__ . "/../Layouts/Head.php" ?>
+
+    <div class="container-fluid mt-5">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
@@ -52,38 +56,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar"
-                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>     
+            </div>   
         </div>
         <div class="table-responsive my-3">
+        <?php Flasher::flash('dashboard/admin') ?>
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <a class="h3 mb-0 btn btn-primary"><i class="fa-solid fa-plus"></i> New Book</a>
+            <a class="h3 mb-0 btn btn-primary" href="<?= BASEURL ?>/dashboard/admin/create" ><i class="fa-solid fa-plus"></i> New Book</a>
         </div>
             <table class="table table-hover" id="BukuTable">
                 <thead class="thead-light">
@@ -92,6 +70,7 @@
                         <th scope="col" data-priority="1" >Judul</th>
                         <th scope="col">Pengarang</th>
                         <th scope="col">Penerbit</th>
+                        <th scope="col">Category</th>
                         <th scope="col">Tahun</th>
                         <th scope="col">Jumlah</th>
                         <th scope="col-2">Action</th>
@@ -102,15 +81,23 @@
                     <?php foreach ($data['buku'] as $data): ?>
                         <tr>
                             <th scope="row"><?= $i++ ?></th>
-                            <td><?= $data['judul'] ?></td>
-                            <td><?= $data['pengarang'] ?></td>
-                            <td><?= $data['penerbit'] ?></td>
-                            <td><?= $data['tahun_terbit'] ?></td>
-                            <td><?= $data['jumlah_copy'] ?></td>
+                            <td><?= htmlspecialchars($data['judul']) ?></td>
+                            <td><?= htmlspecialchars($data['pengarang']) ?></td>
+                            <td><?= htmlspecialchars($data['penerbit']) ?></td>
+                            <td><?= htmlspecialchars($data['category']) ?></td>
+                            <td><?= htmlspecialchars($data['tahun_terbit']) ?></td>
+                            <td><?= htmlspecialchars($data['jumlah_copy']) ?></td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="" class="btn btn-warning">Edit</a>
-                                    <a href="" class="btn btn-danger ml-1">Delete</a>
+                                    <a href="<?= BASEURL ?>/dashboard/admin/edit?id=<?= $data['id'] ?>" class="btn btn-warning">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <form action="<?= BASEURL ?>/dashboard/admin/delete" method="POST" id="FormDelete" >
+                                        <input type="hidden" value="<?= $data['id'] ?>" name="id" >
+                                    </form>
+                                    <button type="submit" form="FormDelete" class="btn btn-danger ml-1">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -118,10 +105,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
-<?php require_once __DIR__ . "/../Layouts/Foot.php" ?>
-<script>
-    $(function () {
-        $('#BukuTable').DataTable()
-    })
-</script>
+    </div> 
+<?php require_once __DIR__ . "/../Layouts/Foot.php"; ?>
+<script>let table = new DataTable('#BukuTable');</script>

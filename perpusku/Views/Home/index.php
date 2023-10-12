@@ -12,7 +12,6 @@
       <form action="<?= BASEURL ?>" class="col-lg-5" id="InputSearch">
         <div class="form-outline mb-3">
           <input name="q" id="search-input" id="form1" class="form-control mt-3" placeholder="Search" value="<?= $_GET['q'] ?? false ?>" />
-          <!-- <label class="form-label" for="form1">Search</label> -->
         </div>
       </form>
       <button id="search-button" type="submit" class="btn btn-primary" form="InputSearch" >
@@ -23,15 +22,18 @@
       <?php if (count($data['books']) > 0 ): ?>
         <?php foreach ($data['books'] as $book) : ?>
           <div class="col-lg-3 col-md-12 mb-4 mx-lg-3">
-            <div class="card">
+            <div class="card mb-1">          
               <div class="bg-image hover-overlay ripple px-lg-3" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
+                <span class="position-absolute px-2 py-1 z-1 " style="background-color: rgba(0, 0, 0, .8);" >
+                  <a class="text-decoration-none text-white" href="<?= BASEURL ?>/?c=<?= $book['category'] ?><?= isset($_GET['q']) ? '&q=' : '' ?><?= $_GET['q'] ?? false ?>"><?= $book['category'] ?></a> 
+                </span>
+                <img src="https://source.unsplash.com/160x175?<?= $book['category'] ?>" class="img-fluid" loading="lazy" />
                 <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.20);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title"><?= $book['judul'] ?></h5>
+                <h6 class="card-title"><?= $book['judul'] ?></h6>
                 <p class="card-text text-start">
                   <small class="text-muted small">Oleh : <?= $book['pengarang'] ?></small> <br/>
                   <small class="text-muted small">Penerbit : <?= $book['penerbit'] ?></small> <br/>

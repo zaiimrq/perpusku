@@ -25,7 +25,7 @@
 <!-- Copyright -->
 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
   © <?= date('Y') ?> Copyright
-  <a class="text-dark" href="https://mdbootstrap.com/">perpusku</a>
+  <a class="text-dark" href="<?= BASEURL ?>">perpusku</a>
 </div>
 <!-- Copyright -->
 </footer>

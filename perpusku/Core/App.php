@@ -25,7 +25,13 @@ class App
         Route::add('GET', '/dashboard/anggota', AnggotaDashboardController::class, 'index');
         Route::add('GET', '/dashboard/admin', AdminDashboardController::class, 'index');
         Route::add('GET', '/dashboard', AdminDashboardController::class, 'dashboard');
+        Route::add('GET', '/dashboard/admin/create', AdminDashboardController::class, 'create');
+        Route::add('POST', '/dashboard/admin/create', AdminDashboardController::class, 'store');
+        Route::add('POST', '/dashboard/admin/delete', AdminDashboardController::class, 'destroy');
+        Route::add('GET', '/dashboard/admin/edit', AdminDashboardController::class, 'edit');
+        Route::add('POST', '/dashboard/admin/edit', AdminDashboardController::class, 'update');
         
         Route::run();
+
     }
 }
