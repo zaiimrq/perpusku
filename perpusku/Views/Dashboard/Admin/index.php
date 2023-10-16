@@ -4,7 +4,6 @@
 use Perpus\Perpusku\Core\Flasher;
 
  require_once __DIR__ . "/../Layouts/Head.php" ?>
-
     <div class="container-fluid mt-4 px-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>

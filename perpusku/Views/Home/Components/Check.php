@@ -8,7 +8,7 @@
             .then(data => {
                 if (data.auth) {
                     if (data.anggota) anggota(data.book)
-                    if (data.admin) admin()
+                    if (data.admin) admin(data.admin)
                 }else {
                     window.location.href = '/login';
                 }
@@ -51,7 +51,6 @@
 
         function checkJumlah(jumlah)
         {
-            // console.log(jumlah);
             if (jumlah == 1) {
                $('.minus').off('click')
             }
@@ -61,9 +60,20 @@
             }
         }
 
-        function admin()
+        function admin(data)
         {
-            console.log('admin');
+            $("#AdminToast").addClass('d-block opacity-100')
+            $('#AdminToast').css('transform', 'translateX(0%)')
+            $("#ToastClose").click(() => {
+                $("#AdminToast").removeClass('d-block opacity-100')
+            })
+            setTimeout(() => {
+                $("#AdminToast").removeClass('d-block opacity-100')
+                $("#ToastClose").click(() => {
+                    $("#AdminToast").removeClass('d-block opacity-100')
+                })
+            }, 5000)
+
         }
 
 

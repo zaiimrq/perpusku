@@ -72,9 +72,5 @@
             <?php endif; ?>
           </div>
         </div>
-
-     
-
-        
       </div>
-    </nav>
+  </nav>

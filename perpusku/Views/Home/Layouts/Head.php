@@ -16,7 +16,19 @@
     <link rel="shortcut icon" href="<?= BASEURL ?>/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-
   <header>
     <?php include_once __DIR__ . "/../Components/Navbar.php"; ?>
   </header>
+  <div class="toast-container position-fixed end-0" style="top: 5.5rem;" >
+    <div id="AdminToast" class="toast shadow" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true" style="transform: translateX(100%);" >
+        <div class="toast-header bg-warning text-white">
+          <img src="<?= BASEURL ?>/assets/img/favicon.ico" class="rounded me-2" alt="...">
+          <strong class="me-auto">Warning !</strong>
+          <small>Just Now</small>
+          <button id="ToastClose" type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          You Are Admin, Create Anggota Account To Borrow The Book !
+        </div>
+    </div>
+  </div>
