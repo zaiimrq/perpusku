@@ -20,11 +20,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="h2">See Youu 🤗, </p>             
+                <p class="h3 text-gray-800">See you next time&#x1F44B&#x1F44B </p>             
                    <?php if (isset($_SESSION['auth']['admin'])): ?>
-                        <p class="h3">Admin</p>
+                        <p class="h4 text-gray-800">Admin</p>
                     <?php elseif (isset($_SESSION['auth']['anggota'])): ?>
-                       <p class="h3" > <?= $_SESSION['auth']['user']['nama'] ?? false ?></p>
+                       <p class="h4 text-gray-800" > <?= $_SESSION['auth']['user']['nama'] ?? false ?></p>
                     <?php endif ?>                
             </div>
             <div class="modal-footer">

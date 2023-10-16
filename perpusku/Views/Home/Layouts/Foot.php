@@ -11,5 +11,6 @@
     <script src="<?= BASEURL ?>/public/assets/js/sb-admin-2.min.js"></script>
     <script src="<?= BASEURL ?>/public/assets/js/mdb.min.js"></script>
     <script src="<?= BASEURL ?>/public/assets/js/script.js"></script>
+    <?php include_once __DIR__ . '/../Components/Check.php' ?>
 </body>
 </html>

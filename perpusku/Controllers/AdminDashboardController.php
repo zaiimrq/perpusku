@@ -3,6 +3,7 @@
 namespace Perpus\Perpusku\Controllers;
 use Perpus\Perpusku\Core\Controller;
 use Perpus\Perpusku\Core\Flasher;
+use Perpus\Perpusku\Core\Gate;
 use Perpus\Perpusku\Models\AdminModel;
 
 class AdminDashboardController extends Controller
@@ -10,7 +11,9 @@ class AdminDashboardController extends Controller
    
     public function dashboard()
     {
-        // var_dump($_SESSION['auth']['admin']);
+    
+        Gate::auth();
+
         if(isset($_SESSION['auth']['admin'])) {
             header("Location: ". BASEURL . "/dashboard/admin");
             exit;
@@ -22,6 +25,8 @@ class AdminDashboardController extends Controller
 
     public function index()
     {
+        Gate::admin();
+
         $data = self::model(AdminModel::class)->count();
         $data['title'] = 'Dashboard';
         self::view('Dashboard/Admin/index', $data);
@@ -29,12 +34,17 @@ class AdminDashboardController extends Controller
 
     public function create()
     {
+
+        Gate::admin();
+
         $data['title'] = 'New Book';
         self::view('Dashboard/Admin/create', $data);
     }
 
     public function store()
     {   
+        Gate::admin();
+
         $status = self::model(AdminModel::class)->store($_POST);
 
         if ($status > 0) {
@@ -47,6 +57,8 @@ class AdminDashboardController extends Controller
 
     public function destroy()
     {
+        Gate::admin();
+
         $status = self::model(AdminModel::class)->destroy($_POST['id']);
 
         if ($status > 0) {
@@ -59,6 +71,8 @@ class AdminDashboardController extends Controller
 
     public function edit()
     {
+        Gate::admin();
+
         $data['buku'] = self::model(AdminModel::class)->edit($_GET['id']);
         $data['title'] = 'Edit Book';
         self::view('Dashboard/Admin/edit', $data);
@@ -66,6 +80,8 @@ class AdminDashboardController extends Controller
 
     public function update()
     {
+        Gate::admin();
+
         $status = self::model(AdminModel::class)->update($_POST);
 
         if ($status > 0) {

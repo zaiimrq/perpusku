@@ -20,9 +20,12 @@ class HomeModel extends Database
     }
     public function home($search)
     {
-        $query = 'SELECT * FROM buku WHERE ( judul LIKE :search OR pengarang LIKE :search OR penerbit LIKE :search OR tahun_terbit LIKE :search )';
+        $order = 'ORDER BY id DESC';
+        $query = 'SELECT * FROM buku WHERE ( judul LIKE :search OR pengarang LIKE :search OR penerbit LIKE :search OR tahun_terbit LIKE :search OR category LIKE :search )';
+        $query .= $order;
         if ($search['c']) {
-            $query .= ' AND category = "'. $search['c'] .'" ORDER BY id DESC';
+            $query .= ' AND category = "'. $search['c'] .'"';
+            $query .= $order;
         }
         $search = '%' . $search['q'] . '%';
         $this->db->query($query);
@@ -65,7 +68,7 @@ class HomeModel extends Database
 
     public function login($data)
     {
-        $query = 'SELECT users.email, users.password, users.is_admin, anggota.nama FROM users LEFT JOIN anggota ON users.email = anggota.email WHERE users.email = :email';
+        $query = 'SELECT users.email, users.password, users.is_admin, anggota.nama, anggota.id FROM users LEFT JOIN anggota ON users.email = anggota.email WHERE users.email = :email';
 
         $this->db->query($query);
         $this->db->bind('email', $data['email']);
@@ -82,5 +85,13 @@ class HomeModel extends Database
         } else {
             return false;
         }
+    }
+
+
+    public function getBook($id)
+    {
+        $this->db->query('SELECT * FROM buku WHERE id=:id');
+        $this->db->bind('id', $id);
+        return $this->db->get();
     }
 }

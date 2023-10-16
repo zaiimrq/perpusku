@@ -84,3 +84,8 @@
         
     })
 </script>
+<script>
+    if (document.location.pathname == '/register') {
+        document.querySelector('.register').style.display = 'none'
+    }
+</script>

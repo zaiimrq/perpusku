@@ -5,7 +5,7 @@ use Perpus\Perpusku\Core\Flasher;
 
  require_once __DIR__ . "/../Layouts/Head.php" ?>
 
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-4 px-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
@@ -14,9 +14,9 @@ use Perpus\Perpusku\Core\Flasher;
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
+                            <div class="col mr-2 pl-3">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Buku</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['jumlah_buku']['all_buku'] ?></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['jumlah_buku'] ?></div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -29,10 +29,10 @@ use Perpus\Perpusku\Core\Flasher;
                 <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
+                            <div class="col mr-2 pl-3">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Buku Dipinjam</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['jumlah_peminjaman']['jumlah_peminjaman'] ?></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['jumlah_peminjaman'] ?></div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -41,14 +41,30 @@ use Perpus\Perpusku\Core\Flasher;
                     </div>
                 </div>
             </div>
-             <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
+                            <div class="col mr-2 pl-3">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Pending Payment</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                    Pending</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['pending'] ?></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+             <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2 pl-3">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Approved</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data['approved'] ?></div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -59,10 +75,10 @@ use Perpus\Perpusku\Core\Flasher;
             </div>   
         </div>
         <div class="table-responsive my-3">
-        <?php Flasher::flash('dashboard/admin') ?>
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <a class="h3 mb-0 btn btn-primary" href="<?= BASEURL ?>/dashboard/admin/create" ><i class="fa-solid fa-plus"></i> New Book</a>
-        </div>
+            <?php Flasher::flash('dashboard/admin') ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <a class="h3 mb-0 btn btn-primary" href="<?= BASEURL ?>/dashboard/admin/create" ><i class="fa-solid fa-plus"></i> New Book</a>
+            </div>
             <table class="table table-hover" id="BukuTable">
                 <thead class="thead-light">
                     <tr>

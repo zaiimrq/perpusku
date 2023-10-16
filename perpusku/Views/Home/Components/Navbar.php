@@ -47,10 +47,12 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Profile
-                        </a> 
+                        <?php if(empty($_SESSION['auth']['admin'])): ?>
+                          <a class="dropdown-item" href="#">
+                              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                              Profile
+                          </a> 
+                        <?php endif; ?>
                         <a class="dropdown-item" href="<?= BASEURL ?>/dashboard">
                             <i class="fas fa-fw fa-tachometer-alt mr-2 text-gray-400"></i>
                             Dashboard
@@ -65,8 +67,8 @@
             </ul>
 
             <?php else: ?>
-              <a href="<?= BASEURL ?>/login" class="btn btn-link px-3 me-3 mb-2 mb-lg-0" >Login</a>
-              <a href="<?= BASEURL ?>/register" class="btn btn-primary me-3">Register</a>
+              <a href="<?= BASEURL ?>/login" class="btn btn-link px-3 me-3 mb-2 mb-lg-0 login" >Login</a>
+              <a href="<?= BASEURL ?>/register" class="btn btn-primary me-3 register">Register</a>
             <?php endif; ?>
           </div>
         </div>

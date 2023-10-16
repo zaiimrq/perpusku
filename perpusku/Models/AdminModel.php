@@ -27,8 +27,16 @@ class AdminModel
         $this->db->query("SELECT SUM(jumlah_copy) AS all_buku FROM buku");
         $jumlah_buku =  $this->db->get();
 
-        $this->db->query("SELECT COUNT(id) AS jumlah_peminjaman FROM peminjaman");
+        $this->db->query("SELECT SUM(qty) AS jumlah_peminjaman FROM peminjaman");
         $jumlah_peminjaman = $this->db->get();
+        
+        $this->db->query("SELECT SUM(qty) AS pending FROM peminjaman WHERE status=:status");
+        $this->db->bind('status', 'pending');
+        $pending = $this->db->get();
+        
+        $this->db->query("SELECT SUM(qty) AS aproved FROM peminjaman WHERE status=:status");
+        $this->db->bind('status', 'aproved');
+        $aproved = $this->db->get();
 
         $this->db->query("SELECT * FROM buku ORDER BY id DESC");
         $buku = $this->db->getAll();
@@ -38,9 +46,11 @@ class AdminModel
 
 
         return [
-            'jumlah_buku' => $jumlah_buku,
-            'jumlah_peminjaman' => $jumlah_peminjaman,
-            'buku' => $buku
+            'jumlah_buku' => $jumlah_buku['all_buku'] ?? 0,
+            'jumlah_peminjaman' => $jumlah_peminjaman['jumlah_peminjaman'] ?? 0,
+            'pending' => $pending['pending'] ?? 0,
+            'approved' => $aproved['approved'] ?? 0,
+            'buku' => $buku,
         ];
     }
 

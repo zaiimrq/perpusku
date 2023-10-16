@@ -67,3 +67,8 @@
 </body>
 
 <?php include_once __DIR__ . "/Layouts/Foot.php"; ?>
+<script>
+    if (document.location.pathname == '/login') {
+        document.querySelector('.login').style.display = 'none'
+    }
+</script>

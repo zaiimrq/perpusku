@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="<?= BASEURL ?>/public/assets/css/sb-admin-2.css">
     <link rel="stylesheet" href="<?= BASEURL ?>/public/assets/css/mdb.min.css" />
-    <link rel="shortcut icon" href="https://source.unsplash.com/10x10?kitty" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= BASEURL ?>/assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 

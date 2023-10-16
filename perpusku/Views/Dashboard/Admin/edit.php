@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . "/../Layouts/Head.php" ?>
 
-<div class="container-fluid ml-5 min-vh-100">
+<div class="container-fluid ml-3 min-vh-100">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Edit A Book</h1>
     </div>

@@ -1,28 +1,28 @@
 $(function () {
 
-    $('.fa-eye-slash').hide()
+    $('.fa-eye').hide()
 
-    $('.fa-eye.EyeInput').click(function () {
+    $('.fa-eye-slash.EyeInput').click(function () {
         $(this).hide()
-        $('.fa-eye-slash.EyeInput').show()
+        $('.fa-eye.EyeInput').show()
         $('#InputPassword').attr('type', 'text')
     })
 
-    $('.fa-eye-slash.EyeInput').click(function() {
-        $('.fa-eye-slash.EyeInput').hide()
-        $('.fa-eye.EyeInput').show()
+    $('.fa-eye.EyeInput').click(function() {
+        $('.fa-eye.EyeInput').hide()
+        $('.fa-eye-slash.EyeInput').show()
         $('#InputPassword').attr('type', 'password')
     })
 
-    $('.fa-eye.EyeRepeat').click(function () {
+    $('.fa-eye-slash.EyeRepeat').click(function () {
         $(this).hide()
-        $('.fa-eye-slash.EyeRepeat').show()
+        $('.fa-eye.EyeRepeat').show()
         $('#RepeatPassword').attr('type', 'text')
     })
 
-    $('.fa-eye-slash.EyeRepeat').click(function() {
-        $('.fa-eye-slash.EyeRepeat').hide()
-        $('.fa-eye.EyeRepeat').show()
+    $('.fa-eye.EyeRepeat').click(function() {
+        $('.fa-eye.EyeRepeat').hide()
+        $('.fa-eye-slash.EyeRepeat').show()
         $('#RepeatPassword').attr('type', 'password')
     })
 

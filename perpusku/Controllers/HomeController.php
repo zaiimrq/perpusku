@@ -18,5 +18,25 @@ class HomeController extends Controller
         $data['title'] = 'Home';
         self::view('Home/index', $data);
     }
+
+    public function check()
+    {
+        $status = [
+            'auth' => false,
+            'anggota' => false,
+            'admin' => false,
+            'book' => null
+        ];
+
+        if (isset($_SESSION['auth'])) $status['auth'] = true;
+        if (isset($_SESSION['auth']['admin'])) $status['admin'] = true;
+        if (isset($_SESSION['auth']['anggota']))
+        {
+            $status['anggota'] = true;
+            $status['book'] = self::model(HomeModel::class)->getBook($_GET['id']);
+        }
+
+        echo json_encode($status);
+    }
    
 }
