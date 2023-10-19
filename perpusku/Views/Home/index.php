@@ -32,7 +32,7 @@ include_once __DIR__ . "/Layouts/Head.php"; ?>
           <?php foreach ($data['books'] as $book) : ?>
             <div class="col-6 col-md-4 col-lg-3 mb-4">
               <div class="card shadow">          
-                <div class="bg-image hover-overlay ripple pt-3" data-mdb-ripple-color="light">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                   <span class="position-absolute z-1 " style="background-color: rgba(0, 0, 0, .8);" >
                     <a class="text-decoration-none text-white" href="<?= BASEURL ?>/?c=<?= $book['category'] ?><?= isset($_GET['q']) ? '&q=' : '' ?><?= $_GET['q'] ?? false ?>"><?= $book['category'] ?></a> 
                   </span>
@@ -89,11 +89,11 @@ include_once __DIR__ . "/Layouts/Head.php"; ?>
             <form id="modal-borrow" action="<?= BASEURL ?>/dashboard/anggota/borrow" method="POST">
               <input type="hidden" id="modal-id" name="id" >        
               <span class="d-flex justify-content-center align-items-center" >
-                <span class="bg-primary px-4 py-2 rounded text-white minus" style="cursor: pointer;" >
+                <span class="position-absolute bg-primary px-3 px-md-4 py-2 rounded text-white minus" style="cursor: pointer; right: 65%;" >
                   <i class="fa-solid fa-minus fs-5"></i>
                 </span>              
-                <input id="modal-jumlah" class="border-0 text-center text-bold" type="text" name="jumlah" value="1" placeholder="1" readonly >
-                <span class="bg-primary p-4 py-2 rounded text-white plus" style="cursor: pointer;" >
+                <input id="modal-jumlah" class="border-0 text-center text-bold border" type="text" name="jumlah" value="1" placeholder="1" readonly >
+                <span class="position-absolute bg-primary px-3 px-md-4 py-2 rounded text-white plus" style="cursor: pointer; left: 65%;" >
                   <i class="fa-solid fa-plus fs-5"></i>
                 </span>
               </span>         

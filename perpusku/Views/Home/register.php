@@ -69,7 +69,7 @@
 </body>
 
 <?php include_once __DIR__ . "/Layouts/Foot.php"; ?>
-<script src="<?= BASEURL ?>/assets/js/script.js" ></script>
+<script src="<?= BASEURL ?>/public/assets/js/script.js" ></script>
 
 <script>
     $(function () {
